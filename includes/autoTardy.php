@@ -2,6 +2,7 @@
 include('includes/fn_insert_validations.php');
 include('includes/fn_getTardyInfo.php');
 $hasError = $rollBack = FALSE;
+$tardySweep = FALSE;
 $returnMsg = "Enter Student ID";
 
 $styleError = "background-color:red;border-color:red";

@@ -11,7 +11,7 @@ $headers = 'From: ziggytheman@gmail.com' . "\r\n" .
 $message = "";
 $message = $studentName . ' ' . $sId . ' was late on ' . date('Y-m-d') . ' at ' . date("H:i:s");
 $sendMail = false;
-if (!tardySweep) {
+if (!$tardySweep) {
     if (!(isEligiblePrincipalPass($dbSelected, $sId) )) {
         $message .= "\r\n\r\n Student was not eligible for Principal Pass";
         $sendMail = true;

@@ -2,6 +2,7 @@
 include('includes/fn_insert_validations.php');
 include('includes/fn_getTardyInfo.php');
 $hasError = $rollBack = FALSE;
+$tardySweep = FALSE;
 $returnMsg = "Enter Student ID";
 
 $styleError = "background-color:red;border-color:red";
@@ -15,7 +16,7 @@ if ($dbSuccess) {
         if (ISSET($sId)) {
             $studentName = getStudentName($dbSelected, $sId);
             $footerMsg = "Tardy for " . $studentName . " " . $sId . " was inserted ";
-            $tardysweep = true;
+            $tardysweep = TRUE;
             include('includes/principalPassViolation.php');
         }
     }
