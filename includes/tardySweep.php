@@ -16,7 +16,7 @@ if ($dbSuccess) {
         if (ISSET($sId)) {
             $studentName = getStudentName($dbSelected, $sId);
             $footerMsg = "Tardy for " . $studentName . " " . $sId . " was inserted ";
-            $tardysweep = TRUE;
+            $tardySweep = TRUE;
             include('includes/principalPassViolation.php');
         }
     }

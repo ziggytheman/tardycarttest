@@ -55,8 +55,8 @@ if ($dbSuccess) {
                 case "autoTardy":
                     $contentFile = "includes/autoTardy.php";
                     break;
-                case "tardysweep";
-                    $contentFile = "includes/tardySweeep.php";
+                case "tardySweep";
+                    $contentFile = "includes/tardySweep.php";
                     break;
                 case "principalPass":
                     $contentFile = "includes/principalPass.php";
