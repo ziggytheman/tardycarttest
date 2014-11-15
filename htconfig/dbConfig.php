@@ -16,4 +16,3 @@ if (strtoupper(substr(gethostname(), 0, 6)) === 'GARTH') {
         'password' => 'vikingso1',
         'database' => 'tardy_cart_test');
 }
-?>
