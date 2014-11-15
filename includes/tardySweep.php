@@ -37,7 +37,7 @@ if ($dbSuccess) {
             if (doesStudentExist($dbSelected, $studentId)) {
                 include('includes/common_tardyInsert.php');
                 if (mysqli_query($dbSelected, $sql_insert)) {
-                    header("Location: index.php?content=autoTardy&sid=$studentId");
+                    header("Location: index.php?content=tardySweep&sid=$studentId");
                 } else {
                     $errorMsg = "FAILED to add insert TARDY information.<br />";
                     $errorMsg .= mysqli_error($dbSelected) . "<br />";
@@ -53,7 +53,7 @@ if ($dbSuccess) {
     }
 }
 ?>
-<form method="post" action="index.php?content=autoTardy" >
+<form method="post" action="index.php?content=tardySweep" >
     <div class="fieldSet">
         <fieldset>
             <legend>Student Tardy Information</legend>
@@ -73,6 +73,7 @@ if ($dbSuccess) {
     <input type="submit" value="Submit Tardy">
     <input type="reset" value="Cancel">
 </form>
+
 <script>
     $("#pageTitle").text("Tardy Sweep");
 </script>
