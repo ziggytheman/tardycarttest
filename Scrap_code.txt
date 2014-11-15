@@ -72,3 +72,12 @@ select * from v1 left outer join v2 on v1.id = v2.v2_student_id;
 	tc_tardybystudent on tc_principalPassStatus.student_id = tc_tardybystudent.student_id 
 	ORDER BY School desc, Id asc
 
+
+select `tardy_cart_test`.`tc_students`.`stud_school` AS `School`,
+    `tardy_cart_test`.`tc_students`.`stud_student_id` AS `student_id`,
+    concat(`tardy_cart_test`.`tc_students`.`stud_fname`,' ',`tardy_cart_test`.`tc_students`.`stud_lname`) AS `Name`,
+    `tardy_cart_test`.`tc_students`.`stud_grade` AS `Grade`,`tardy_cart_test`.`tc_principalpass`.`pp_authorized` AS `Status` 
+from (`tardy_cart_test`.`tc_students` left outer join `tardy_cart_test`.`tc_principalpass` on 
+    `tardy_cart_test`.`tc_principalpass`.`pp_student_id` = `tardy_cart_test`.`tc_students`.`stud_student_id`)
+
+SELECT `stud_student_id`, `stud_fname`, `stud_lname`, `stud_grade`, `stud_school`, `pp_authorized` FROM `tc_students` left outer join tc_principalpass on `pp_student_id` = stud_student_id ORDER BY `tc_principalpass`.`pp_authorized` DESC

@@ -9,7 +9,7 @@ $headers = 'From: ziggytheman@gmail.com' . "\r\n" .
 
 
 $message = "";
-$message = $studentName . ' ' . $sId . ' was late on ' . date('Y-m-d') . ' at ' . date("H:i:s");
+$message = $studentName . ' ' . $sId . ' was late on ' . date('Y-m-d') . ' at ' . date("H:iA");
 $sendMail = false;
 
 if (!$tardySweep) {

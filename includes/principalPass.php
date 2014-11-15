@@ -8,7 +8,7 @@ if ($dbSuccess) {
     $list_SQLselect .= "tc_principalPassStatus.student_id as 'Id',  ";
     $list_SQLselect .= "name as Name,  ";
 	$list_SQLselect .= "grade as 'Grade',  "; 	
-	$list_SQLselect .= "status as 'Status',  ";
+	$list_SQLselect .= "status as 'PP',  ";
     $list_SQLselect .= "count as 'Count' ";
 	$list_SQLselect .= "from tc_principalPassStatus left outer join  ";
 	$list_SQLselect .= "tc_tardybystudent on tc_principalpassstatus.student_id = tc_tardybystudent.student_id  ";
@@ -19,6 +19,6 @@ if ($dbSuccess) {
 }
 ?>
 <script>
-    $("#pageTitle").text("List");
+    $("#pageTitle").text("Principal Pass");
 </script>
 
