@@ -1,0 +1,74 @@
+SELECT 
+   stud_school as 'School', 
+   stud_student_id as 'Id', 
+   CONCAT(stud_fname, ' ', stud_lname) as Name, 
+	stud_grade as 'Grade', 	
+	pp_attendance as 'Attendance', 
+	pp_tardy_percent as 'Percent', 
+	'Y' as 'Pass' 
+	FROM 
+	tc_students, tc_principalPass  
+	WHERE pp_student_id = stud_student_id 
+	AND pp_attendance > 0.92 and pp_tardy_percent < 0.03 
+	left outer join tc_tardy  
+	on tardy_student_id = stud_student_id 
+	select count(tardy_Date) as 'Count'
+	
+	drop view v1;
+	Create view v1  as
+	SELECT 
+    stud_school as 'School', 
+    stud_student_id as 'Id', 
+    CONCAT(stud_fname, ' ', stud_lname) as Name, 
+	stud_grade as 'Grade', 	
+	pp_authorized	
+	FROM 
+	tc_students, tc_principalPass  
+	WHERE pp_student_id = stud_student_id 
+	
+	
+	AND pp_attendance > 0.92 and pp_tardy_percent < 0.03
+	UNION
+	SELECT 
+   stud_school as 'School', 
+   stud_student_id as 'Id', 
+   CONCAT(stud_fname, ' ', stud_lname) as Name, 
+	stud_grade as 'Grade', 	
+	pp_attendance as 'Attendance', 
+	pp_tardy_percent as 'Percent', 
+	'N' as 'Pass' 
+	FROM 
+	tc_students, tc_principalPass  
+	WHERE pp_student_id = stud_student_id 
+	AND pp_attendance <= 0.92 and pp_tardy_percent >= 0.03
+	
+	drop view v2;
+	create view v2 as
+select tardy_student_id as v2_student_id, count(tardy_Date) as 'Count' from tc_tardy group by tardy_student_id
+
+select * from v1 left outer join v2 on v1.id = v2.v2_student_id;
+
+
+	SELECT 
+	school as 'School', 
+    tc_principlePassStatus.student_id as 'Id', 
+    name as Name, 
+	grade as 'Grade', 	
+	attendance as 'Attendance', 
+	percent as 'Percent',
+    count as'Count'
+	from tc_principlePassStatus left outer join 
+	tc_tardybystudent on tc_principlePassStatus.student_id = tc_tardybystudent.student_id 
+	ORDER BY School desc, Id asc
+	
+	SELECT 
+	school as 'School', 
+    tc_principlePassStatus.student_id as 'Id', 
+    name as Name, 
+	grade as 'Grade', 	
+	status as 'status',
+    count as 'Count'
+	from tc_principalPassStatus left outer join 
+	tc_tardybystudent on tc_principalPassStatus.student_id = tc_tardybystudent.student_id 
+	ORDER BY School desc, Id asc
+
