@@ -73,7 +73,7 @@ if ($dbSuccess) {
     <input type="reset" value="Cancel">
 </form>
 <script>
-    $("#pageTitle").text("Auto Tardy");
+    $("#pageTitle").text("Tardy Sweep");
 </script>
 
 
